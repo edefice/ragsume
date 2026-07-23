@@ -40,15 +40,17 @@ export function topKByEmbedding(
 
 const DEFAULT_EMBEDDINGS_PATH = join(process.cwd(), "data", "embeddings.json");
 
-let cachedChunks: EmbeddedChunk[] | null = null;
+const chunksCache = new Map<string, EmbeddedChunk[]>();
 
 function loadChunks(path: string): EmbeddedChunk[] {
-  if (!cachedChunks) {
+  let chunks = chunksCache.get(path);
+  if (!chunks) {
     const raw = readFileSync(path, "utf-8");
     const parsed = JSON.parse(raw) as { chunks: EmbeddedChunk[] };
-    cachedChunks = parsed.chunks;
+    chunks = parsed.chunks;
+    chunksCache.set(path, chunks);
   }
-  return cachedChunks;
+  return chunks;
 }
 
 export function createRetriever(embeddingsPath: string = DEFAULT_EMBEDDINGS_PATH): Retriever {

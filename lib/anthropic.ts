@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
 import type { RetrievedChunk } from "./retriever";
 
-const MODEL = "claude-opus-4-8";
+const MODEL = "claude-sonnet-5";
 
 export const ragAnswerSchema = z.object({
   answer: z.string(),

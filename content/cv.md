@@ -1,98 +1,107 @@
 ---
-title: "Tomasz — CV"
+title: "Tomasz Bisek — CV"
 docId: cv
 ---
 
-# Tomasz
+# Tomasz Bisek
 
-Front-end/full-stack developer based in Gdynia, Poland, transitioning into AI engineering.
-Nine years building production React/TypeScript UIs and Node.js APIs, now applying that
-foundation to LLM-powered applications: retrieval-augmented generation, structured outputs,
-and agentic tool use.
+AI Application Engineer · Full-Stack & Front-End Developer (React / TypeScript / Node.js /
+Python), based in Gdynia, Poland (remote). Ten-plus years shipping production React, TypeScript,
+and Node.js systems, now building toward AI engineering as a primary goal while remaining an
+immediately-productive fit for full-stack or front-end roles.
 
-Contact: info@tecode.pl · tecode.pl
+Contact: info@tecode.pl · tecode.pl · tecode.pl/blog · github.com/edefice ·
+linkedin.com/in/tomasz-bisek
 
-## Summary
+## Profile
 
-Tomasz has spent most of his career as a front-end specialist — turning Figma designs into
-pixel-perfect, accessible interfaces and building the JavaScript/TypeScript interactivity behind
-them — before broadening into full-stack work with Node.js REST APIs. In 2025 he completed a
-structured AI engineering curriculum covering LLMs, RAG, and agents, and is now building portfolio
-projects (including this one) that demonstrate hands-on LLM SDK experience rather than just
-theoretical knowledge.
+Over the past several months Tomasz completed three structured AI engineering tracks covering
+NLP, transformers, LangChain, RAG, agents, and fine-tuning — and turned that material into working
+code rather than certificates alone: an MCP server that exposes tools to AI clients
+(`job-search-mcp`), and a RAG pipeline built around real chunking, embedding, and retrieval
+trade-offs (`ragsume`, this project). He writes publicly about the process on his technical blog,
+builds daily with Claude Code, and is equally comfortable in the React/Node.js stack that most AI
+features actually ship inside of.
+
+## AI engineering skills
+
+- **LLMs & APIs:** Anthropic API, OpenAI API, Claude Code, prompt engineering, structured outputs
+- **Frameworks:** LangChain, Hugging Face / Transformers
+- **Agents & tools:** agentic workflows, tool/function calling, MCP (Model Context Protocol —
+  both servers and clients)
+- **RAG:** chunking strategy, embeddings, vector search, retrieval trade-offs
+- **Model tuning:** QLoRA and fine-tuning fundamentals
+- **Language:** Python
+
+## AI projects (personal)
+
+- **job-search-mcp** — github.com/edefice/job-search-mcp. An MCP server exposing job-search tools
+  to MCP-compatible clients — hands-on work in tool schemas, request handling, and exposing
+  functionality as agent-callable tools. Built in TypeScript.
+- **ragsume** — github.com/edefice/ragsume. A RAG pipeline built around retrieval, embeddings, and
+  chunking trade-offs, using this site's own blog as the source corpus. In progress — this project.
+- **Technical blog** — tecode.pl/blog. Public write-ups documenting the AI engineering learning
+  path in real time: RAG pipeline design, building an MCP server from scratch, agentic workflows
+  and tool-calling, fine-tuning with QLoRA, and using Claude Code as a daily development tool.
 
 ## Experience
 
-### Founder / Freelance — TECODE (Feb 2019–present)
+### Founder / Freelance (B2B) — TECODE (Feb 2019–present)
 
-Independent front-end contracting under his own studio, TECODE (tecode.pl). Delivered UI and
-front-end feature work for external clients in parallel with full-time roles, covering everything
-from component-level implementation to full page builds from design specs.
+Independent front-end and full-stack contracting; currently redirecting capacity toward
+AI-focused projects and long-term collaboration.
 
 ### Full-Stack Developer — Be truly LOCAL (Jan 2023–Jan 2026)
 
-Built and maintained React/TypeScript UI for a product platform, alongside Node.js REST APIs
-powering it. Focus areas included:
-
-- Performance optimization of front-end rendering and API response times.
-- Writing and maintaining automated tests (Jest/React Testing Library) to keep the codebase
-  reliable as features shipped.
-- End-to-end ownership of features spanning the API layer and the UI consuming it.
+- Designed and built responsive React/TypeScript interfaces backed by REST APIs implemented in
+  Node.js.
+- Optimized rendering and bundle size across mobile and web, improving load times and perceived
+  performance.
+- Drove product planning, estimation, and code review; partnered with designers to refine
+  interactions.
+- Wrote unit and integration tests to keep UI behavior stable across releases.
 
 ### Front-End Developer — T-Create (Feb 2019–Dec 2022)
 
-Translated Figma designs into pixel-perfect production UI and implemented the JavaScript/TypeScript
-behavior behind it. Worked within a Bitbucket-based CI/CD pipeline, shipping front-end changes
-through automated build and deployment workflows.
+- Converted high-fidelity Figma designs into responsive, production-grade React/TypeScript
+  components.
+- Integrated the front-end with backend APIs and managed client-side state for dynamic features.
+- Owned the deployment pipeline end-to-end on Bitbucket CI/CD, from build through production
+  release.
 
 ### Front-End Developer / UX Designer — News Hub Media (Nov 2015–Jan 2019)
 
-Built React/TypeScript interfaces with a strong emphasis on accessibility, ensuring UI components
-were usable via keyboard navigation and screen readers. Also mentored junior developers on
-front-end practices and code quality.
+- Translated UX flows into interactive prototypes and production React/TypeScript components.
+- Collaborated with QA and backend engineers to integrate content pipelines and automate testing.
+- Mentored junior developers on component architecture and CSS best practices.
 
-### Graphic / Web Designer — P4T (May 2014–Nov 2015)
+### Graphic / Web Designer — P4T – play for trade (May 2014–Nov 2015)
 
-Designed and built PHP/MySQL-backed websites, covering both the visual design and the server-side
-implementation — an early full-stack role before specializing in front-end work.
+Built PHP/MySQL websites with authentication and content management; produced print-ready visual
+assets.
 
-## Education
+## Software engineering skills
 
-- **Master's degree, Computer Science** — Lublin University of Technology
-- **Engineer's degree, Computer Science** — Lublin University of Technology
+- **Core:** JavaScript (ES6+), TypeScript, React, Next.js, Vite, HTML5, CSS3, REST APIs
+- **Backend:** Node.js, Express, PHP, ASP.NET, PostgreSQL, MongoDB, MySQL, JWT auth
+- **Quality:** Jest, React Testing Library, ESLint, Prettier
+- **Workflow:** Git, GitHub, Bitbucket, Jira, Agile/Scrum
 
-## AI upskilling (2025)
+## AI engineering coursework
 
-Alongside his front-end/full-stack career, Tomasz completed a structured AI engineering curriculum
-to build hands-on LLM experience:
+- **Complete AI Engineer Training** — Python, NLP, Transformers, LLMs, LangChain, Hugging Face,
+  APIs (Udemy)
+- **AI Engineer Agentic Track** — The Complete Agent & MCP Course (Udemy)
+- **AI Engineer Core Track** — LLM Engineering, RAG, QLoRA, Agents (Udemy)
 
-- **Complete AI Engineer Training** — Python for AI, NLP fundamentals, Transformers, LLMs,
-  LangChain, Hugging Face, and working directly with model provider APIs.
-- **AI Engineer Agentic Track** — building agents and working with MCP (Model Context Protocol).
-- **AI Engineer Core Track** — LLM engineering fundamentals, retrieval-augmented generation (RAG),
-  QLoRA fine-tuning, and agent architectures.
+## Certifications & education
 
-This project — "Ask My CV" — and a prior shipped portfolio app are the practical output of that
-training: both built end-to-end, deployed, and open-sourced on GitHub.
-
-## Core skills
-
-**Languages & runtimes:** JavaScript (ES6+), TypeScript, Node.js
-
-**Front-end:** React, Next.js, accessibility (WCAG-conscious UI), pixel-perfect implementation
-from Figma designs
-
-**Back-end:** Express, REST API design and implementation
-
-**Testing:** Jest, React Testing Library
-
-**Tooling:** Git, Bitbucket CI/CD
-
-**AI/LLM (2025 upskilling):** LLM APIs (Anthropic, others), RAG pipelines, structured/tool-use
-outputs, LangChain, Hugging Face, agents, MCP, QLoRA fine-tuning
+- **Certification:** Microsoft Certified Professional — .NET Framework 4: Web Applications
+- **Master's degree, Computer Science** — Lublin University of Technology (2012–2014)
+- **Engineer's degree, Computer Science** — Lublin University of Technology (2007–2012)
 
 ## Languages
 
 - Polish — native
-- English — C1 (professional working proficiency)
+- English — C1 (advanced)
 - German — A2 (basic)

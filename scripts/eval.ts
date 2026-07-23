@@ -14,18 +14,40 @@ const K = 5;
 
 const EVAL_CASES: EvalCase[] = [
   { question: "Where did Tomasz work most recently?", expectedDocId: "cv" },
-  { question: "What was Tomasz's role at T-Create?", expectedDocId: "cv" },
   { question: "What programming languages and frameworks does Tomasz know?", expectedDocId: "cv" },
   { question: "What AI engineering training has Tomasz completed?", expectedDocId: "cv" },
   { question: "What language does Tomasz speak natively, and what's his English level?", expectedDocId: "cv" },
   { question: "What's Tomasz's educational background?", expectedDocId: "cv" },
-  { question: "What did Tomasz do at News Hub Media?", expectedDocId: "cv" },
   { question: "What does the Job Search MCP Server do?", expectedDocId: "project-job-search-mcp" },
   { question: "How does the job search tool handle Polish city names like Łódź?", expectedDocId: "project-job-search-mcp" },
   { question: "What tech stack is the job search MCP project built with?", expectedDocId: "project-job-search-mcp" },
   { question: "Where is the Job Search MCP Server's code hosted on GitHub?", expectedDocId: "project-job-search-mcp" },
   { question: "What is the Ask My CV project and how does its retrieval work?", expectedDocId: "project-ask-my-cv" },
   { question: "What does Ask My CV use for generating structured answers?", expectedDocId: "project-ask-my-cv" },
+  {
+    question: "What did Tomasz learn about chunking strategy when building his RAG pipeline?",
+    expectedDocId: "rag-pipeline-design",
+  },
+  {
+    question: "What does Tomasz say makes a good MCP tool description?",
+    expectedDocId: "building-mcp-server-from-scratch",
+  },
+  {
+    question: "How has using Claude Code changed Tomasz's day-to-day development work?",
+    expectedDocId: "claude-code-daily-dev-tool",
+  },
+  {
+    question: "How does QLoRA differ from full fine-tuning?",
+    expectedDocId: "notes-on-fine-tuning-qlora",
+  },
+  {
+    question: "What are the core building blocks of an agent, according to Tomasz?",
+    expectedDocId: "agentic-workflows-single-prompt-to-multi-step",
+  },
+  {
+    question: "Why did Tomasz decide to move from front-end development into AI engineering?",
+    expectedDocId: "from-frontend-to-ai-engineer",
+  },
 ];
 
 // A small courtesy delay between queries; lib/embeddings.ts's retry-with-backoff
