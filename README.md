@@ -83,6 +83,19 @@ Open [http://localhost:3000](http://localhost:3000).
 - `npm test` — run unit tests
 - `npm run lint` — ESLint
 
+## Retrieval eval
+
+`npm run eval` embeds 20 hand-written questions and checks that the expected document appears in
+the top-5 retrieved chunks. Current result: **19/20**.
+
+The one known failure is *"How has using Claude Code changed Tomasz's day-to-day development
+work?"* (expected `claude-code-daily-dev-tool`). After Splitshape and the CV were added to the
+corpus, several chunks that also describe the Claude Code workflow (CV profile, Splitshape project
+and launch post) score higher than the blog post: its best chunk ranks 8th (0.471) against 0.491
+at 5th place. I tried capping results at 2 chunks per document with k unchanged; it did not change
+the top-5 (no document had more than 2 chunks there), so I reverted the idea and left the
+failure as is rather than changing the question or the expected document.
+
 ## Environment variables
 
 ```

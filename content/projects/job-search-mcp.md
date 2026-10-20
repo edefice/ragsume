@@ -7,11 +7,11 @@ docId: project-job-search-mcp
 
 GitHub: https://github.com/edefice/job-search-mcp
 
-Tomasz's first shipped AI-engineering portfolio project — an MCP (Model Context Protocol) server
-that lets Claude search [justjoin.it](https://justjoin.it) job postings and track application
-status, so Claude Desktop or Claude Code can be asked things like "find me new AI Engineer roles
-in Warsaw" or "what's the status of the application I sent last week." Built as a real tool for his
-own AI Engineer job search, not a toy demo.
+An MCP (Model Context Protocol) server, written in TypeScript, that lets Claude search
+[justjoin.it](https://justjoin.it) job postings and track application status. With it, Claude
+Desktop or Claude Code can be asked things like "find new AI Engineer roles in Warsaw" or "what's
+the status of the application I sent last week." It was Tomasz's first MCP project, built in
+2026 while learning agents and tool calling.
 
 ## What it does
 
@@ -32,7 +32,7 @@ Application data is stored locally in a JSON file, no database or external servi
 Node.js 18+, TypeScript, MCP SDK. Tests run on Node's built-in test runner (`node:test`) rather
 than pulling in a separate framework.
 
-## Engineering notes worth citing
+## Engineering notes
 
 - **justjoin.it has no public API.** It's a Next.js app with build-hashed CSS classes that
   change on every deploy, so scraping anchors on stable landmarks instead — a specific link

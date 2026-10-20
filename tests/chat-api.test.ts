@@ -68,6 +68,37 @@ describe("POST /api/chat", () => {
     expect(generateAnswerMock).toHaveBeenCalledWith("What does Tomasz do?", sampleChunks);
   });
 
+  it("returns a friendly low-confidence answer instead of a 500 when generation fails", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    searchMock.mockResolvedValue(sampleChunks);
+    generateAnswerMock.mockRejectedValue(new Error("validation failed twice"));
+
+    const response = await POST(makeRequest({ question: "What does Tomasz do?" }));
+
+    expect(response.status).toBe(200);
+    const body = (await response.json()) as RagAnswer;
+    expect(body.confidence).toBe("low");
+    expect(body.sources).toEqual([]);
+    expect(body.answer).toMatch(/try again/i);
+  });
+
+  it("returns a friendly answer when retrieval fails", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    searchMock.mockRejectedValue(new Error("voyage down"));
+
+    const response = await POST(makeRequest({ question: "What does Tomasz do?" }));
+
+    expect(response.status).toBe(200);
+    expect(generateAnswerMock).not.toHaveBeenCalled();
+  });
+
+  it("returns 400 for a non-JSON body", async () => {
+    const response = await POST(
+      new Request("http://localhost/api/chat", { method: "POST", body: "not json" }),
+    );
+    expect(response.status).toBe(400);
+  });
+
   it("returns 400 for an empty question and never calls retrieval or generation", async () => {
     const response = await POST(makeRequest({ question: "" }));
 

@@ -20,6 +20,13 @@ built and launched Splitshape solo: a deterministic engine computes the pacing p
 (Anthropic API) explains it to the runner. He works daily in Claude Code with a configured
 workflow (CLAUDE.md, custom commands, a code-review subagent, hooks).
 
+## Looking for
+
+Looking for full-stack or front-end leaning JavaScript / TypeScript roles where AI is part of the
+product or the workflow. Remote. Employment or B2B.
+
+(Source: the contact section of tecode.pl.)
+
 ## Professional experience
 
 ### Creator & Full-Stack Developer — Splitshape (own product), splitshape.run (Jul 2026–present)

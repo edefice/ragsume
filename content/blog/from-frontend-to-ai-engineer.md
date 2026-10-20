@@ -1,11 +1,11 @@
 ---
-title: "From Front-End to AI Engineer: My Learning Path"
+title: "From Front-End to AI-Powered Products: My Learning Path"
 docId: from-frontend-to-ai-engineer
 date: 2026-03-02
 source: https://tecode.pl/blog/from-frontend-to-ai-engineer
 ---
 
-# From Front-End to AI Engineer: My Learning Path
+# From Front-End to AI-Powered Products: My Learning Path
 
 *Update, October 2026: this post describes where I was in March. Since then I have shipped Splitshape (splitshape.run), a production app where Claude writes race notes on top of a deterministic pacing engine. See the case study: /projects/splitshape.*
 
@@ -42,4 +42,4 @@ of the underlying technology.
 
 No production experience yet with AI features in a live environment — this is a learner building a
 foundation through coursework and personal projects, documented here with an emphasis on practical
-understanding over theoretical abstraction.
+understanding over theoretical abstraction. (Update, October 2026: no longer true. See Splitshape.)
