@@ -51,6 +51,10 @@ const EVAL_CASES: EvalCase[] = [
     question: "Why did Tomasz decide to move from front-end development into AI engineering?",
     expectedDocId: "from-frontend-to-ai-engineer",
   },
+  {
+    question: "How does Splitshape make sure the numbers Claude quotes in its race notes are correct?",
+    expectedDocId: "the-code-computes-the-model-quotes",
+  },
 ];
 
 // A small courtesy delay between queries; lib/embeddings.ts's retry-with-backoff
