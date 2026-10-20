@@ -67,12 +67,44 @@ describe("generateAnswer", () => {
     );
   });
 
-  it("throws if the tool input fails schema validation", async () => {
+  it("throws after one retry if the tool input keeps failing schema validation", async () => {
     createMock.mockResolvedValue({
       content: [{ type: "tool_use", id: "toolu_1", name: "provide_answer", input: { answer: "x" } }],
     });
 
     await expect(generateAnswer("question", chunks)).rejects.toThrow();
+    expect(createMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("retries once when the first response fails validation", async () => {
+    const good = { answer: "ok", sources: [], confidence: "low" };
+    createMock
+      .mockResolvedValueOnce({
+        content: [{ type: "tool_use", id: "toolu_1", name: "provide_answer", input: { answer: "x" } }],
+      })
+      .mockResolvedValueOnce({
+        content: [{ type: "tool_use", id: "toolu_2", name: "provide_answer", input: good }],
+      });
+
+    await expect(generateAnswer("question", chunks)).resolves.toEqual(good);
+    expect(createMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("normalizes an invalid confidence value instead of failing", async () => {
+    createMock.mockResolvedValue({
+      content: [
+        {
+          type: "tool_use",
+          id: "toolu_1",
+          name: "provide_answer",
+          input: { answer: "ok", sources: [], confidence: "Very High" },
+        },
+      ],
+    });
+
+    const result = await generateAnswer("question", chunks);
+    expect(result.confidence).toBe("medium");
+    expect(createMock).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -83,10 +115,17 @@ describe("ragAnswerSchema", () => {
     ).not.toThrow();
   });
 
-  it("rejects an invalid confidence value", () => {
-    expect(() =>
-      ragAnswerSchema.parse({ answer: "...", sources: [], confidence: "certain" }),
-    ).toThrow();
+  it("lowercases and trims confidence", () => {
+    expect(
+      ragAnswerSchema.parse({ answer: "...", sources: [], confidence: " HIGH " }).confidence,
+    ).toBe("high");
+  });
+
+  it("falls back to medium for an unknown or missing confidence", () => {
+    expect(
+      ragAnswerSchema.parse({ answer: "...", sources: [], confidence: "certain" }).confidence,
+    ).toBe("medium");
+    expect(ragAnswerSchema.parse({ answer: "...", sources: [] }).confidence).toBe("medium");
   });
 
   it("rejects a source missing required fields", () => {

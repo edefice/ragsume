@@ -37,6 +37,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# private CV source (contains personal data; content/cv.md is the public version)
+/Tomasz_Bisek_CV_EN.pdf
+
 # claude code local settings
 .claude/settings.local.json
 

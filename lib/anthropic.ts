@@ -4,6 +4,16 @@ import type { RetrievedChunk } from "./retriever";
 
 const MODEL = "claude-sonnet-5";
 
+const CONFIDENCE_LEVELS = ["high", "medium", "low"] as const;
+
+// The model occasionally returns "High", "very high", etc. Normalize case/whitespace and fall
+// back to "medium" for anything unrecognized instead of failing the whole request.
+function normalizeConfidence(value: unknown): unknown {
+  if (typeof value !== "string") return "medium";
+  const normalized = value.trim().toLowerCase();
+  return (CONFIDENCE_LEVELS as readonly string[]).includes(normalized) ? normalized : "medium";
+}
+
 export const ragAnswerSchema = z.object({
   answer: z.string(),
   sources: z.array(
@@ -14,7 +24,7 @@ export const ragAnswerSchema = z.object({
       excerpt: z.string(),
     }),
   ),
-  confidence: z.enum(["high", "medium", "low"]),
+  confidence: z.preprocess(normalizeConfidence, z.enum(CONFIDENCE_LEVELS)),
 });
 
 export type RagAnswer = z.infer<typeof ragAnswerSchema>;
@@ -87,10 +97,9 @@ function buildUserMessage(question: string, chunks: RetrievedChunk[]): string {
   return `Context:\n${context}\n\nQuestion: ${question}`;
 }
 
-export async function generateAnswer(
-  question: string,
-  chunks: RetrievedChunk[],
-): Promise<RagAnswer> {
+const MAX_ATTEMPTS = 2;
+
+async function requestAnswer(question: string, chunks: RetrievedChunk[]): Promise<RagAnswer> {
   const anthropic = getClient();
 
   const response = await anthropic.messages.create({
@@ -110,4 +119,26 @@ export async function generateAnswer(
   }
 
   return ragAnswerSchema.parse(toolUse.input);
+}
+
+// Retries once when the response is unusable (no tool call, or it fails schema validation).
+// API/network errors are not retried here; the SDK already retries those.
+export async function generateAnswer(
+  question: string,
+  chunks: RetrievedChunk[],
+): Promise<RagAnswer> {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      return await requestAnswer(question, chunks);
+    } catch (err) {
+      if (!(err instanceof z.ZodError) && !isMissingToolUse(err)) throw err;
+      lastError = err;
+    }
+  }
+  throw lastError;
+}
+
+function isMissingToolUse(err: unknown): boolean {
+  return err instanceof Error && err.message.includes("did not return a tool_use block");
 }
