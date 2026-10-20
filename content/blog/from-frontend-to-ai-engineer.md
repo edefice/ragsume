@@ -7,6 +7,8 @@ source: https://tecode.pl/blog/from-frontend-to-ai-engineer
 
 # From Front-End to AI Engineer: My Learning Path
 
+*Update, October 2026: this post describes where I was in March. Since then I have shipped Splitshape (splitshape.run), a production app where Claude writes race notes on top of a deterministic pacing engine. See the case study: /projects/splitshape.*
+
 ## Overview
 
 After a decade-plus in front-end and full-stack work, here's the deliberate path into AI

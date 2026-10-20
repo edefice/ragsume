@@ -13,7 +13,7 @@ interface EvalCase {
 const K = 5;
 
 const EVAL_CASES: EvalCase[] = [
-  { question: "Where did Tomasz work most recently?", expectedDocId: "cv" },
+  { question: "What is Tomasz's current professional role and what is he working on right now?", expectedDocId: "cv" },
   { question: "What programming languages and frameworks does Tomasz know?", expectedDocId: "cv" },
   { question: "What AI engineering training has Tomasz completed?", expectedDocId: "cv" },
   { question: "What language does Tomasz speak natively, and what's his English level?", expectedDocId: "cv" },
@@ -24,6 +24,9 @@ const EVAL_CASES: EvalCase[] = [
   { question: "Where is the Job Search MCP Server's code hosted on GitHub?", expectedDocId: "project-job-search-mcp" },
   { question: "What is the Ask My CV project and how does its retrieval work?", expectedDocId: "project-ask-my-cv" },
   { question: "What does Ask My CV use for generating structured answers?", expectedDocId: "project-ask-my-cv" },
+  { question: "What is Splitshape?", expectedDocId: "project-splitshape" },
+  { question: "How does Splitshape use Claude, and what does it leave to the deterministic engine?", expectedDocId: "project-splitshape" },
+  { question: "What tech stack and infrastructure is Splitshape built on?", expectedDocId: "project-splitshape" },
   {
     question: "What did Tomasz learn about chunking strategy when building his RAG pipeline?",
     expectedDocId: "rag-pipeline-design",
